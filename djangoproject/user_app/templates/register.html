@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+{%block title%}
+<title>Register Option</title>
+{%endblock title%}
+
+{%block content%}
+<br>
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-primary alert-dismissible fade show container" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{%endfor%}
+{%endif%}
+<div class = "container">
+<form method="POST">
+    {%csrf_token%}
+    {{register_form|crispy}}
+    <button type = "submit">Register</button>
+</form>
+</div>
+{%endblock content%}
+
